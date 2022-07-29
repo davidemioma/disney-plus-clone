@@ -19,6 +19,7 @@ const WatchList = ({ results, title }: Props) => {
       <div className="flex p-2 space-x-6 overflow-y-hidden overflow-x-scroll scrollbar-hide">
         {results?.map((doc: any, i: number) => (
           <div
+            key={i}
             className="thumbnail"
             onClick={() => router.push(`/${doc.data().path}/${doc.id}`)}
           >
