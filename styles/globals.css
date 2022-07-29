@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+@layer base {
+  body {
+    @apply scrollbar-hide bg-[#040714] text-[#f9f9f9] font-body;
+  }
+}
+
+@layer components {
+  .button {
+    @apply text-[#f9f9f9] bg-black/60 w-10 h-10 rounded-full flex items-center justify-center border-2 border-white;
+  }
+
+  .thumbnail {
+    @apply relative min-w-[250px] min-h-[170px] md:min-w-[300px] md:min-h-[200px] rounded-lg overflow-hidden cursor-pointer border-[3px] border-[#f9f9f9] shadow-lg border-opacity-10 hover:border-opacity-80 hover:shadow-2xl hover:scale-105 transition transform duration-300;
+  }
+}
