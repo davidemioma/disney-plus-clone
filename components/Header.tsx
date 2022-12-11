@@ -6,6 +6,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, db, signInWithGoogle } from "../firebase";
 import { useRouter } from "next/router";
 import { doc, setDoc } from "@firebase/firestore";
+import { LogoutIcon } from "@heroicons/react/outline";
 
 const Header = () => {
   const router = useRouter();
@@ -57,12 +58,22 @@ const Header = () => {
 
       <div className="ml-auto">
         {user ? (
-          <img
-            className="h-12 w-12 rounded-full object-cover cursor-pointer"
-            onClick={logoutHandler}
-            src={`${user?.photoURL}`}
-            alt=""
-          />
+          <div className="flex items-center space-x-3">
+            <img
+              className="h-12 w-12 rounded-full object-cover cursor-pointer"
+              src={`${user?.photoURL}`}
+              alt=""
+            />
+
+            <button
+              className="text-white group flex items-center space-x-2 cursor-pointer"
+              onClick={logoutHandler}
+            >
+              <LogoutIcon className="h-5" />
+
+              <p className="link">Sign Out</p>
+            </button>
+          </div>
         ) : (
           <button
             className="border rounded px-4 py-1.5 uppercase font-medium tracking-wide hover:border-0 hover:bg-white hover:text-[#040714] transition-all duration-200"
